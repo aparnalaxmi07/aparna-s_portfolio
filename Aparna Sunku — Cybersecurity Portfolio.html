@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Aparna Sunku — Cybersecurity & IoT Engineering Student</title>
+<style>
+:root{color-scheme:dark;--bg:#09050f;--sf:rgba(28,20,48,.62);--v:#8B5CF6;--p:#F472B6;--a:#FBBF24;--t:#F3EEFF;--m:#A99DC4;--bd:rgba(167,139,250,.2);box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-behavior:smooth;scroll-padding-top:calc(76px + env(safe-area-inset-top,0px))}
+body{margin:0;background:var(--bg);color:var(--t);font:16px/1.65 Inter,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0;z-index:-2;background:radial-gradient(60% 50% at 85% 0,rgba(139,92,246,.28),transparent),radial-gradient(50% 40% at 0 40%,rgba(244,114,182,.15),transparent),radial-gradient(40% 40% at 70% 100%,rgba(251,191,36,.08),transparent)}
+#bg{position:fixed;inset:0;z-index:-1;width:100%;height:100%}
+a{color:var(--p)}:focus-visible{outline:2px solid var(--a);outline-offset:3px;border-radius:8px}
+.mono{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace}
+#bar{position:fixed;top:0;left:0;height:3px;width:0;z-index:30;background:linear-gradient(90deg,var(--v),var(--p),var(--a))}
+header{position:fixed;top:10px;left:0;right:0;z-index:20;padding:0 12px;margin-top:env(safe-area-inset-top,0px)}
+nav{max-width:1080px;margin:auto;display:flex;align-items:center;justify-content:space-between;padding:0 14px;height:56px;border-radius:99px;background:rgba(20,13,36,.7);backdrop-filter:blur(14px);border:1px solid var(--bd)}
+.logo{font-weight:800;color:var(--t);text-decoration:none}.logo b{background:linear-gradient(90deg,var(--v),var(--p));-webkit-background-clip:text;background-clip:text;color:transparent}
+.links{display:flex;gap:2px;list-style:none;margin:0;padding:0}
+.links a{display:block;padding:7px 12px;border-radius:99px;color:var(--m);text-decoration:none;font-size:14px;transition:.2s}
+.links a:hover,.links a.on{color:#fff;background:rgba(139,92,246,.35)}
+#menu{display:none;background:none;border:1px solid var(--bd);color:var(--t);border-radius:99px;padding:7px 14px;cursor:pointer}
+@media(max-width:900px){#menu{display:block}.links{display:none;position:absolute;top:64px;left:12px;right:12px;flex-direction:column;background:rgba(20,13,36,.96);border:1px solid var(--bd);border-radius:20px;padding:10px}.links.open{display:flex}}
+section{max-width:1080px;margin:auto;padding:90px 20px 10px}
+h2{font-size:clamp(26px,4vw,36px);margin:0 0 6px;letter-spacing:-.02em}
+h2 span{background:linear-gradient(90deg,var(--v),var(--p),var(--a));-webkit-background-clip:text;background-clip:text;color:transparent}
+.sub{color:var(--m);margin:0 0 26px}
+.card{position:relative;background:var(--sf);backdrop-filter:blur(10px);border:1px solid var(--bd);border-radius:20px;padding:22px;overflow:hidden;transition:border-color .3s,transform .2s}
+.card::before{content:"";position:absolute;inset:0;background:radial-gradient(300px circle at var(--mx,50%) var(--my,0),rgba(244,114,182,.16),transparent 60%);opacity:0;transition:.3s;pointer-events:none}
+.card:hover::before{opacity:1}.card:hover{border-color:rgba(244,114,182,.5)}
+.btn{display:inline-flex;align-items:center;gap:6px;padding:11px 20px;border-radius:99px;border:1px solid var(--bd);background:rgba(255,255,255,.04);color:var(--t);text-decoration:none;font:600 14px inherit;cursor:pointer;transition:.2s}
+.btn:hover{border-color:var(--p);transform:translateY(-2px)}
+.btn.p{background:linear-gradient(90deg,var(--v),var(--p));border:0;color:#fff;box-shadow:0 6px 24px rgba(139,92,246,.4)}
+.tag{display:inline-block;font-size:12px;padding:3px 11px;border-radius:99px;background:rgba(139,92,246,.18);color:#d9ccff;border:1px solid var(--bd);margin:3px 4px 0 0}
+.tag.s{background:rgba(251,191,36,.12);color:var(--a);border-color:rgba(251,191,36,.35)}
+.hero{display:grid;grid-template-columns:1.05fr 1fr;gap:34px;align-items:center;min-height:100vh;padding-top:110px}
+@media(max-width:900px){.hero{grid-template-columns:1fr;min-height:0}}
+.hero h1{font-size:clamp(42px,8vw,76px);line-height:1;margin:12px 0;letter-spacing:-.03em}
+.hero h1 em{font-style:normal;background:linear-gradient(90deg,var(--v),var(--p),var(--a));-webkit-background-clip:text;background-clip:text;color:transparent}
+.role{font-size:20px;margin:0 0 12px;color:#e0d4ff}
+.row{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.term{background:rgba(8,4,16,.85);border:1px solid var(--bd);border-radius:18px;overflow:hidden;box-shadow:0 20px 70px rgba(139,92,246,.25)}
+.tb{display:flex;gap:6px;padding:11px 14px;border-bottom:1px solid var(--bd);align-items:center;font-size:12px;color:var(--m)}
+.tb i{width:10px;height:10px;border-radius:50%;background:var(--p)}.tb i:nth-child(2){background:var(--a)}.tb i:nth-child(3){background:var(--v)}
+#tm{padding:16px;font-size:13.5px;min-height:200px;white-space:pre-wrap;word-break:break-word;margin:0}
+#tm .pr{color:var(--p)}#tm .o{color:#e9defd}
+.cur{display:inline-block;width:8px;height:15px;background:var(--a);vertical-align:-2px;animation:bl 1s steps(2) infinite}
+@keyframes bl{50%{opacity:0}}
+.hud{margin-top:16px}
+.hud h3{margin:0 0 4px;font-size:14px;color:var(--a);font-weight:600}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(135px,1fr));gap:10px}
+.tile{background:rgba(255,255,255,.04);border:1px solid var(--bd);border-radius:14px;padding:10px 12px;min-width:0}
+.tile small{display:block;color:var(--m);font-size:11px;text-transform:none}
+.tile b{font-size:14px;word-break:break-word}
+.batt{height:8px;border-radius:9px;background:rgba(255,255,255,.1);margin-top:6px;overflow:hidden}.batt i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--p),var(--a));transition:width .8s}
+.note{font-size:11px;color:var(--m);margin:8px 0 0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px}
+.tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}
+.tab{background:var(--sf);border:1px solid var(--bd);color:var(--m);padding:8px 18px;border-radius:99px;cursor:pointer;font:600 14px inherit;transition:.2s}
+.tab[aria-selected=true]{color:#fff;background:linear-gradient(90deg,var(--v),var(--p));border-color:transparent}
+.skgrp{margin-bottom:14px}.skgrp h4{margin:0 0 4px;color:var(--a);font-size:13px}
+.proj.big{grid-column:1/-1;border-color:rgba(244,114,182,.4)}
+.proj h3{margin:8px 0 4px;font-size:22px}.proj p{color:var(--m);margin:6px 0}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s,transform .7s}.reveal.in{opacity:1;transform:none}
+.tl{position:relative;border-left:2px solid var(--bd);margin-left:8px;padding-left:24px}
+.tl .card{margin-bottom:16px}
+.tl .card::after{content:"";position:absolute;left:-33px;top:26px;width:12px;height:12px;border-radius:50%;background:var(--p);box-shadow:0 0 14px var(--p)}
+.tl .card{overflow:visible}.tl h3{margin:0}.tl small{color:var(--m)}
+.thm{display:flex;align-items:center;gap:22px;flex-wrap:wrap;margin-top:22px}
+.thm .big{font-size:50px;font-weight:800;line-height:1;background:linear-gradient(90deg,var(--a),var(--p));-webkit-background-clip:text;background-clip:text;color:transparent}
+.mod{position:fixed;inset:0;z-index:50;background:rgba(5,2,10,.8);backdrop-filter:blur(6px);display:none;align-items:center;justify-content:center;padding:16px}
+.mod.open{display:flex}
+.mb{background:#150d26;border:1px solid var(--bd);border-radius:22px;max-width:760px;width:100%;max-height:88vh;overflow:auto;padding:26px;animation:pop .25s}
+@keyframes pop{from{opacity:0;transform:scale(.95)}}
+.mb h3{margin:6px 0 2px;font-size:26px}.mb h4{color:var(--a);margin:18px 0 6px}.mb ul{margin:0;padding-left:20px;color:var(--m)}
+.arch{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+.arch div{padding:12px 16px;border:1px solid var(--v);border-radius:12px;background:rgba(139,92,246,.12);font-size:13px}.arch span{color:var(--p)}
+.mock{background:#08040f;border:1px solid var(--bd);border-radius:12px;padding:14px;font-size:12px;color:var(--m)}
+.mock b{color:var(--p)}.mock .ln{padding:6px 8px;border-bottom:1px dashed var(--bd);display:flex;justify-content:space-between;gap:8px}
+.x{float:right;background:none;border:1px solid var(--bd);color:var(--t);border-radius:99px;padding:6px 14px;cursor:pointer}
+footer{text-align:center;color:var(--m);font-size:13px;padding:50px 20px 40px}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<div id="bar"></div><canvas id="bg" aria-hidden="true"></canvas>
+<header><nav aria-label="Main">
+<a class="logo" href="#home">aparna<b>.sec</b></a>
+<button id="menu" aria-expanded="false" aria-controls="links">Menu</button>
+<ul class="links" id="links">
+<li><a href="#home">Home</a></li><li><a href="#about">About</a></li><li><a href="#skills">Skills</a></li><li><a href="#projects">Projects</a></li><li><a href="#experience">Experience</a></li><li><a href="#education">Education</a></li><li><a href="#research">Research</a></li><li><a href="#contact">Contact</a></li>
+</ul></nav></header>
+<main>
+<section id="home" class="hero">
+<div>
+<span class="tag s mono">Student · open to internships</span>
+<h1>Aparna <em>Sunku</em></h1>
+<p class="role">Cybersecurity &amp; IoT Engineering Student</p>
+<p style="color:var(--m);max-width:520px">Building practical security tools, exploring IoT systems, and developing secure technology solutions.</p>
+<div class="row">
+<a class="btn p" href="#projects">View Projects</a>
+<a class="btn" href="https://github.com/aparnalaxmi07" target="_blank" rel="noopener noreferrer">View GitHub</a>
+<a class="btn" href="#contact">Contact Me</a></div>
+</div>
+<div>
+<div class="term" role="img" aria-label="Simulated terminal showing profile focus areas">
+<div class="tb"><i></i><i></i><i></i><span class="mono" style="margin-left:8px">simulated-terminal — read-only</span></div>
+<pre id="tm" class="mono"></pre></div>
+<div class="card hud"><h3 class="mono">&gt; visitor_console</h3>
+<div class="tiles" id="hud"></div>
+<p class="note">Read from your own browser only. Nothing is uploaded or stored. Some values (like battery) aren’t available in every browser.</p>
+<div class="row" style="margin-top:10px"><button class="btn" id="geo">Show my precise location</button></div></div>
+</div>
+</section>
+
+<section id="about" class="reveal"><h2><span>About</span></h2>
+<div class="card"><p style="margin-top:0">I am Aparna Sunku, an engineering student pursuing a B.E. in IoT, Cybersecurity and Blockchain Technology at Dayananda Sagar Academy of Technology and Management.</p>
+<p>I am interested in cybersecurity, web security, IoT systems, and secure technology development.</p>
+<p>Through projects such as PenGoat and my VM-based Threat Intelligence Dashboard, I have been exploring security analysis, application development, and Linux environments.</p>
+<p style="margin-bottom:0">I am continuing to build my technical skills through hands-on projects, academic research, and cybersecurity learning.</p></div></section>
+
+<section id="skills" class="reveal"><h2><span>Skills</span></h2><p class="sub">Grouped by area, with honest labels instead of percentages.</p>
+<div class="tabs" role="tablist" id="skt"></div><div class="card" id="skp" role="tabpanel" aria-live="polite"></div></section>
+
+<section id="projects" class="reveal"><h2><span>Projects</span></h2><p class="sub">Three projects, all student work.</p>
+<div class="tabs" id="flt" role="group" aria-label="Filter projects"></div><div class="grid" id="pg"></div>
+<div class="card thm"><div class="big mono">Top 20%</div>
+<div style="flex:1;min-width:220px"><h3 style="margin:0">TryHackMe</h3><p style="color:var(--m);margin:4px 0 12px">Hands-on Cybersecurity Learning</p>
+<a class="btn p" href="https://tryhackme.com/p/aparnalaxmi777" target="_blank" rel="noopener noreferrer">View TryHackMe Profile</a></div></div>
+<div class="card" style="margin-top:18px"><h3 style="margin:0 0 4px">Achievement</h3><p style="margin:0"><b style="color:var(--a)">Tata Imagination Challenge 2026</b> — Reached Round 2.</p></div></section>
+
+<section id="experience" class="reveal"><h2><span>Experience</span></h2>
+<div class="tl"><div class="card"><h3>Frontend Developer Intern</h3>
+<small>JB Portals · Bengaluru, India · January 2024 – April 2024</small>
+<p style="margin-bottom:0;color:var(--m)" id="expdesc">Internship focused on frontend development. <span class="mono" style="font-size:12px">[Detailed responsibilities: edit here.]</span></p></div></div></section>
+
+<section id="education" class="reveal"><h2><span>Education</span></h2><div class="tl" id="edu"></div></section>
+
+<section id="research" class="reveal"><h2><span>Research &amp; Learning</span></h2>
+<div class="card" style="margin-bottom:18px"><span class="tag s">IoT Research Project</span>
+<h3 style="margin:8px 0 4px">Power Vampire Detection in IoT Systems</h3>
+<p style="color:var(--m);margin:0 0 10px">Research on standby power consumption and identifying energy waste in connected systems — energy efficiency, power vampire behavior, and connected devices.</p>
+<p class="mono" style="font-size:13px;margin:0;color:var(--m)">Conference / publication details: <span id="conf" style="color:var(--a)"></span></p></div>
+<h3 style="margin:26px 0 6px">Certifications &amp; Learning</h3>
+<p class="sub" style="margin-top:0">Listed as learning experiences; no credential IDs or dates are claimed.</p><div class="grid" id="learn"></div></section>
+
+<section id="contact" class="reveal"><h2><span>Contact</span></h2>
+<div class="card"><p style="margin-top:0;color:var(--m)">Based in Bengaluru, Karnataka, India. Reach out about internships or projects. There is no contact form here, so use the links below.</p>
+<div class="row" style="margin-top:0"><a class="btn p" href="mailto:aparnalaxmi777@gmail.com">Email</a>
+<a class="btn" href="https://github.com/aparnalaxmi07" target="_blank" rel="noopener noreferrer">GitHub</a>
+<a class="btn" href="https://www.linkedin.com/in/aparna-sunku-b9b" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+<a class="btn" href="https://tryhackme.com/p/aparnalaxmi777" target="_blank" rel="noopener noreferrer">TryHackMe</a></div>
+<p class="mono" style="font-size:13px;color:var(--m);margin-bottom:0">aparnalaxmi777@gmail.com</p></div></section>
+</main>
+<footer>© 2026 Aparna Sunku · No scans or commands are executed on this site.</footer>
+<div class="mod" id="mod" role="dialog" aria-modal="true" aria-labelledby="mt"><div class="mb" id="mbody"></div></div>
+
+<script>
+const DATA={
+conference:"Not confirmed — details to be added once verified",
+skills:{
+Programming:[["Primary Skills",["Python","C","SQL"]],["Project Experience",["JavaScript"]]],
+Cybersecurity:[["Project Experience",["Security Headers","XSS reflection testing","Open Redirect detection"]],["Familiar With",["Web Security","OWASP concepts","Security analysis fundamentals","Linux","Kali Linux","Ubuntu","Threat monitoring fundamentals"]],["Currently Learning",["TryHackMe hands-on labs"]]],
+"Web Development":[["Project Experience",["HTML","CSS","JavaScript","Node.js","Express.js","EJS","Tailwind CSS","React","REST API fundamentals"]]],
+"Database & Tools":[["Familiar With",["MySQL","Git","GitHub","Axios"]]],
+IoT:[["Familiar With",["Internet of Things","IoT security","ESP32","Sensor-based systems","MQTT fundamentals","Embedded systems fundamentals"]]]},
+projects:[
+{id:"pengoat",name:"PenGoat",cat:"Cybersecurity",big:true,status:"Development Project",
+ short:"A web-based security analysis application for inspecting website security characteristics and identifying selected web security issues.",
+ tech:["Node.js","Express.js","EJS","Tailwind CSS","Axios","DNS","WHOIS/RDAP"],
+ features:["URL Analyzer","IP information","HTTP response headers","WHOIS/RDAP-related information","Security Headers Scanner","XSS Reflection Test Scanner","Open Redirect Detector","Controlled vulnerable testing endpoint"],
+ planned:"CORS Misconfiguration Scanner (planned, not implemented)",
+ objective:"Inspect website security characteristics and identify selected web security issues.",
+ arch:"Express.js server rendering EJS views, using Axios for outbound requests and DNS / WHOIS-RDAP lookups.",
+ gh:"https://github.com/aparnalaxmi07/pengoat",mock:true},
+{id:"tid",name:"Threat Intelligence Dashboard",cat:"Cybersecurity",status:"Development Project",
+ short:"A VM-based threat monitoring project connecting a Linux security environment to a dashboard for threat-related information.",
+ tech:["Python","Flask","Kali Linux","Ubuntu","Virtual Machines"],
+ features:["Virtual machine setup","Linux environments","Flask server setup (Ubuntu VM)","Dashboard development","Application debugging"],
+ objective:"Connect a Linux security environment with a dashboard for displaying threat-related information.",arch:"flow",gh:null},
+{id:"pv",name:"Power Vampire Detection in IoT Systems",cat:"Research",status:"IoT Research Project",
+ short:"IoT research on standby power consumption and identifying energy waste in connected systems.",tech:[],
+ features:["Standby power consumption","Energy efficiency","IoT systems","Power vampire behavior","Connected devices"],
+ objective:"Study standby power consumption and energy waste in connected systems.",
+ arch:"Technologies and methodology: not listed until confirmed.",gh:null,extra:true}],
+edu:[
+["Dayananda Sagar Academy of Technology and Management","B.E. in IoT, Cybersecurity and Blockchain Technology","2024–2027","CGPA 8.4"],
+["Sri Venkateshwara Polytechnic","Diploma in Computer Science and Engineering","2021–2024","83%"],
+["St. Joseph Jigani School","SSLC","2021","78%"]],
+learn:["Cisco Introduction to Cybersecurity","Infosys Springboard — Introduction to Architecting Smart IoT Devices","ESP32 Workshop","TryHackMe hands-on cybersecurity learning"]};
+const $=(s,r=document)=>r.querySelector(s);
+const tags=(a,c="")=>a.map(t=>`<span class="tag ${c}">${t}</span>`).join("");
+const RM=matchMedia("(prefers-reduced-motion:reduce)").matches;
+
+// Terminal
+const lines=[["whoami","Aparna Sunku"],["focus","Cybersecurity | IoT | Blockchain"],["status","Building security-focused projects"],["learning","Web Security | Linux | IoT Security"]];
+const tm=$("#tm");
+if(RM){tm.innerHTML=lines.map(l=>`<span class="pr">$</span> ${l[0]}\n<span class="o">${l[1]}</span>\n`).join("\n")}else{
+ let out="",li=0,ci=0,ph=0;
+ (function tick(){
+  if(li>=lines.length){tm.innerHTML=out+'<span class="cur"></span>';return}
+  const l=lines[li];
+  if(ph==0){ci++;tm.innerHTML=out+`<span class="pr">$</span> ${l[0].slice(0,ci)}<span class="cur"></span>`;if(ci>=l[0].length){ph=1;ci=0}setTimeout(tick,55)}
+  else{out+=`<span class="pr">$</span> ${l[0]}\n<span class="o">${l[1]}</span>\n\n`;li++;ph=0;setTimeout(tick,300)}
+ })();
+}
+
+// Visitor console (local browser data only)
+const hud=$("#hud");const T={};
+const tile=(k,l,v,x="")=>{T[k]=T[k]||(()=>{const d=document.createElement("div");d.className="tile";hud.appendChild(d);return d})();T[k].innerHTML=`<small>${l}</small><b>${v}</b>${x}`};
+function clock(){let tz="unknown";try{tz=Intl.DateTimeFormat().resolvedOptions().timeZone}catch(e){}
+ tile("time","Your local time",new Date().toLocaleTimeString([], {hour:"2-digit",minute:"2-digit",second:"2-digit"}));
+ tile("tz","Time zone (approx. region)",tz.replace(/_/g," "))}
+clock();setInterval(clock,1000);
+tile("scr","Screen",`${screen.width}×${screen.height} @${devicePixelRatio}x`);
+tile("lang","Language",navigator.language||"unknown");
+const cn=navigator.connection;
+const net=()=>tile("net","Network",(navigator.onLine?"Online":"Offline")+(cn&&cn.effectiveType?` · ${cn.effectiveType}`:""));
+net();addEventListener("online",net);addEventListener("offline",net);
+tile("batt","Device battery","Checking…");
+if(navigator.getBattery){navigator.getBattery().then(b=>{
+ const u=()=>tile("batt","Device battery",`${Math.round(b.level*100)}%${b.charging?" ⚡ charging":""}`,`<div class="batt"><i style="width:${b.level*100}%"></i></div>`);
+ u();["levelchange","chargingchange"].forEach(e=>b.addEventListener(e,u))}).catch(()=>tile("batt","Device battery","Blocked by browser"))}
+else tile("batt","Device battery","Not supported in this browser");
+$("#geo").onclick=function(){
+ if(!navigator.geolocation){tile("loc","Precise location","Not supported");return}
+ tile("loc","Precise location","Waiting for your permission…");
+ navigator.geolocation.getCurrentPosition(p=>tile("loc","Precise location",`${p.coords.latitude.toFixed(2)}, ${p.coords.longitude.toFixed(2)}`,`<small>±${Math.round(p.coords.accuracy)} m · shown only to you</small>`),
+ e=>tile("loc","Precise location",e.code==1?"Permission declined":"Unavailable"),{timeout:10000});
+};
+
+// Nav, progress, reveal
+const menu=$("#menu"),links=$("#links");
+menu.onclick=()=>{const o=links.classList.toggle("open");menu.setAttribute("aria-expanded",o)};
+links.addEventListener("click",e=>{if(e.target.tagName=="A"){links.classList.remove("open");menu.setAttribute("aria-expanded","false")}});
+const spy=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)document.querySelectorAll(".links a").forEach(a=>a.classList.toggle("on",a.getAttribute("href")=="#"+e.target.id))}),{rootMargin:"-45% 0px -50% 0px"});
+document.querySelectorAll("main section").forEach(s=>spy.observe(s));
+const rv=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");rv.unobserve(e.target)}}),{threshold:.08});
+document.querySelectorAll(".reveal").forEach(r=>rv.observe(r));
+addEventListener("scroll",()=>{const h=document.documentElement;$("#bar").style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight)*100)+"%"},{passive:true});
+
+// Card spotlight + tilt (pointer devices only)
+document.addEventListener("pointermove",e=>{const c=e.target.closest&&e.target.closest(".card");if(!c)return;const r=c.getBoundingClientRect();
+ c.style.setProperty("--mx",e.clientX-r.left+"px");c.style.setProperty("--my",e.clientY-r.top+"px");
+ if(!RM&&e.pointerType=="mouse"&&c.classList.contains("proj")&&!c.classList.contains("big")){const x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;c.style.transform=`perspective(700px) rotateY(${x*7}deg) rotateX(${-y*7}deg)`}});
+document.addEventListener("pointerout",e=>{const c=e.target.closest&&e.target.closest(".proj");if(c)c.style.transform=""});
+
+// Skills
+const skt=$("#skt"),skp=$("#skp");
+function showSk(k){[...skt.children].forEach(b=>b.setAttribute("aria-selected",b.dataset.k==k));
+ skp.innerHTML=DATA.skills[k].map(g=>`<div class="skgrp"><h4>${g[0]}</h4>${tags(g[1],g[0]=="Primary Skills"?"s":"")}</div>`).join("")}
+Object.keys(DATA.skills).forEach(k=>{const b=document.createElement("button");b.className="tab";b.textContent=k;b.dataset.k=k;b.setAttribute("role","tab");b.onclick=()=>showSk(k);skt.appendChild(b)});
+showSk("Programming");
+
+// Projects
+const pg=$("#pg"),flt=$("#flt");let cur="All";
+function renderP(){pg.innerHTML=DATA.projects.filter(p=>cur=="All"||p.cat==cur).map(p=>`
+ <article class="card proj ${p.big?"big":""}"><span class="tag s">${p.status}</span><span class="tag">${p.cat}</span>
+ <h3>${p.name}</h3><p>${p.short}</p><div>${tags(p.tech)}</div>
+ ${p.big?`<p style="font-size:13px"><b style="color:var(--t)">Features worked on:</b> ${p.features.join(" · ")}</p>`:""}
+ <div class="row"><button class="btn p" data-id="${p.id}">View Details</button>${p.gh?`<a class="btn" href="${p.gh}" target="_blank" rel="noopener noreferrer">GitHub</a>`:""}</div></article>`).join("")}
+["All","Cybersecurity","IoT","Research"].forEach(c=>{const b=document.createElement("button");b.className="tab";b.textContent=c;b.setAttribute("aria-selected",c=="All");b.onclick=()=>{cur=c;[...flt.children].forEach(x=>x.setAttribute("aria-selected",x==b));renderP()};flt.appendChild(b)});
+renderP();
+
+// Modal
+const mod=$("#mod"),mb=$("#mbody");let last=null;
+pg.addEventListener("click",e=>{const b=e.target.closest("button[data-id]");if(b)openP(b.dataset.id,b)});
+function openP(id,btn){const p=DATA.projects.find(x=>x.id==id);last=btn;
+ const arch=p.arch=="flow"?`<div class="arch"><div>Kali Linux</div><span>→</span><div>Ubuntu VM</div><span>→</span><div>Flask Dashboard</div></div>`:`<p style="margin:0;color:var(--m)">${p.arch}</p>`;
+ mb.innerHTML=`<button class="x" id="cl">Close</button><span class="tag s">${p.status}</span><h3 id="mt">${p.name}</h3><p style="color:var(--m);margin:0">${p.cat}</p>
+ <h4>Objective</h4><p style="margin:0;color:var(--m)">${p.objective}</p>
+ <h4>Technologies</h4>${p.tech.length?tags(p.tech):'<p style="margin:0;color:var(--m)">Not listed until confirmed.</p>'}
+ <h4>${p.extra?"Research focus":"Features"}</h4><ul>${p.features.map(f=>`<li>${f}</li>`).join("")}${p.planned?`<li><i>${p.planned}</i></li>`:""}</ul>
+ <h4>Architecture</h4>${arch}
+ ${p.mock?`<h4>Illustrative interface</h4><div class="mock mono"><b>PenGoat</b> — mockup only, no scans are run<div class="ln"><span>Module</span><span>URL Analyzer</span></div><div class="ln"><span>Module</span><span>Security Headers Scanner</span></div><div class="ln"><span>Module</span><span>XSS Reflection Test</span></div><div class="ln"><span>Module</span><span>Open Redirect Detector</span></div></div>`:""}
+ ${p.extra?`<h4>Conference details</h4><p style="margin:0;color:var(--m)">${DATA.conference}</p>`:""}
+ <h4>Current status</h4><p style="margin:0;color:var(--m)">${p.status}. Not presented as production-ready.</p>
+ ${p.gh?`<div class="row"><a class="btn p" href="${p.gh}" target="_blank" rel="noopener noreferrer">GitHub Repository</a></div>`:""}`;
+ mod.classList.add("open");$("#cl").focus()}
+function closeP(){mod.classList.remove("open");if(last)last.focus()}
+mod.addEventListener("click",e=>{if(e.target==mod||e.target.id=="cl")closeP()});
+document.addEventListener("keydown",e=>{if(!mod.classList.contains("open"))return;
+ if(e.key=="Escape")closeP();
+ if(e.key=="Tab"){const f=[...mb.querySelectorAll("button,a")],a=f[0],z=f[f.length-1];
+  if(e.shiftKey&&document.activeElement==a){e.preventDefault();z.focus()}else if(!e.shiftKey&&document.activeElement==z){e.preventDefault();a.focus()}}});
+
+$("#edu").innerHTML=DATA.edu.map(e=>`<div class="card"><h3>${e[0]}</h3><div style="color:var(--p)">${e[1]}</div><small>${e[2]} · ${e[3]}</small></div>`).join("");
+$("#learn").innerHTML=DATA.learn.map(l=>`<div class="card"><span class="tag">Learning experience</span><p style="margin:8px 0 0">${l}</p></div>`).join("");
+$("#conf").textContent=DATA.conference;
+
+// Interactive particle network background (reacts to pointer)
+(function(){const c=$("#bg"),x=c.getContext("2d");let W,H,P=[],m={x:-999,y:-999};
+ const init=()=>{W=c.width=innerWidth;H=c.height=innerHeight;const n=Math.min(70,Math.floor(W*H/24000));P=Array.from({length:n},()=>({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.35,vy:(Math.random()-.5)*.35}))};
+ const draw=()=>{x.clearRect(0,0,W,H);
+  P.forEach((p,i)=>{if(!RM){p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>W)p.vx*=-1;if(p.y<0||p.y>H)p.vy*=-1}
+   const dx=p.x-m.x,dy=p.y-m.y,d=Math.hypot(dx,dy);if(d<120&&!RM){p.x+=dx/d*1.2;p.y+=dy/d*1.2}
+   x.fillStyle="rgba(244,114,182,.7)";x.beginPath();x.arc(p.x,p.y,1.8,0,7);x.fill();
+   for(let j=i+1;j<P.length;j++){const q=P[j],l=Math.hypot(p.x-q.x,p.y-q.y);if(l<130){x.strokeStyle=`rgba(139,92,246,${.35*(1-l/130)})`;x.beginPath();x.moveTo(p.x,p.y);x.lineTo(q.x,q.y);x.stroke()}}});
+  if(!RM)requestAnimationFrame(draw)};
+ addEventListener("resize",()=>{init();if(RM)draw()});addEventListener("pointermove",e=>{m.x=e.clientX;m.y=e.clientY});
+ init();draw()})();
+</script>
+</body>
+</html>
